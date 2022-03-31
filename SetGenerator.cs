@@ -27,8 +27,7 @@ namespace WindowsFormsApp9
 
         private void textBoxCountElements_TextChanged(object sender, EventArgs e)
         {
-            int flag = 0;
-            if (!(int.TryParse(textBoxCountElements.Text, out flag)))
+            if (!(int.TryParse(textBoxCountElements.Text, out _)))
             {
                 label2.Text = "Введенно некорректное значение.";
                 this.Height = 200;

@@ -46,9 +46,9 @@ namespace WindowsFormsApp9
                 }
 
                 myStopwatch.Stop();
-                var resultTime = myStopwatch.Elapsed;
+                var resultTime = myStopwatch.ElapsedTicks;
                 var elapsedTime =
-                    $"{resultTime.Hours:00}:{resultTime.Minutes:00}:{resultTime.Seconds:00}.{resultTime.Milliseconds:000}";
+                    $"{resultTime}";
                 form1.labelCountComparison.Text = Convert.ToString(ComparativeAnalysis.Comparison);
                 form1.labelNumberOfPermutations.Text = Convert.ToString(ComparativeAnalysis.NumberOfPermutations);
                 form1.labelTimeSort.Text = elapsedTime;
@@ -71,10 +71,10 @@ namespace WindowsFormsApp9
                 }
 
                 myStopwatch.Stop();
-                var resultTime = myStopwatch.Elapsed;
+                var resultTime = myStopwatch.ElapsedTicks;
                 var elapsedTime =
-                    $"{resultTime.Hours:00}:{resultTime.Minutes:00}:{resultTime.Seconds:00}.{resultTime.Milliseconds:000}";
-                ComparativeAnalysis.timeSort = resultTime.Seconds * 1000 + resultTime.Milliseconds;
+                    $"{resultTime}";
+                ComparativeAnalysis.timeSort = resultTime;
                 ComparativeAnalysis.elapsedTime = elapsedTime;
             }
             return arrayForSort;

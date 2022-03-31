@@ -16,16 +16,16 @@ namespace WindowsFormsApp9
         {
             int range = 10,
                 length = array.ToList().Max().ToString().Length;
-            ArrayList[] lists = new ArrayList[range];
-            for (int i = 0; i < range; ++i) lists[i] = new ArrayList();
+            var lists = new ArrayList[range];
+            for (var i = 0; i < range; ++i) lists[i] = new ArrayList();
 
-            System.Diagnostics.Stopwatch myStopwatch = new System.Diagnostics.Stopwatch();
+            var myStopwatch = new System.Diagnostics.Stopwatch();
             if (flag)
             {
                 IOFile.FillContent();
                 myStopwatch.Start();
 
-                for (int step = 0; step < length; ++step)
+                for (var step = 0; step < length; ++step)
                 {
                    
                     //распределение по спискам
@@ -35,12 +35,12 @@ namespace WindowsFormsApp9
                     }
 
                     //сборка
-                    int k = 0;
-                    for (int i = 0; i < range; ++i)
+                    var k = 0;
+                    for (var i = 0; i < range; ++i)
                     {
                         iterationCount++;
                         IOFile.content += this.iterationCount.ToString() + " итерация: " + '\n';
-                        for (int j = 0; j < lists[i].Count; ++j)
+                        for (var j = 0; j < lists[i].Count; ++j)
                         {
                             IOFile.InputInfoAboutTransposition(array[k], (int)lists[i][j]);
                             array[k++] = (int) lists[i][j];
@@ -49,7 +49,7 @@ namespace WindowsFormsApp9
                         IOFile.FillContent();
                     }
 
-                    for (int i = 0; i < range; ++i)
+                    for (var i = 0; i < range; ++i)
                         lists[i].Clear();
                 }
 
@@ -85,10 +85,9 @@ namespace WindowsFormsApp9
                 //}
 
                 myStopwatch.Stop();
-                var resultTime = myStopwatch.Elapsed;
+                var resultTime = myStopwatch.ElapsedTicks;
 
-                string elapsedTime =
-                    $"{resultTime.Hours:00}:{resultTime.Minutes:00}:{resultTime.Seconds:00}.{resultTime.Milliseconds:000}";
+                var elapsedTime = $"{resultTime}";
 
                 form1.labelCountComparison.Text = Convert.ToString(ComparativeAnalysis.Comparison);
                 form1.labelNumberOfPermutations.Text = Convert.ToString(ComparativeAnalysis.NumberOfPermutations);
@@ -99,7 +98,7 @@ namespace WindowsFormsApp9
             {
                 myStopwatch.Start();
 
-                for (int step = 0; step < length; ++step)
+                for (var step = 0; step < length; ++step)
                 {
 
                     //распределение по спискам
@@ -110,18 +109,18 @@ namespace WindowsFormsApp9
                     }
 
                     //сборка
-                    int k = 0;
-                    for (int i = 0; i < range; ++i)
+                    var k = 0;
+                    for (var i = 0; i < range; ++i)
                     {
                         iterationCount++;
-                        for (int j = 0; j < lists[i].Count; ++j)
+                        for (var j = 0; j < lists[i].Count; ++j)
                         {
                             array[k++] = (int)lists[i][j];
                             ComparativeAnalysis.NumberOfPermutations++;
                         }
                     }
 
-                    for (int i = 0; i < range; ++i)
+                    for (var i = 0; i < range; ++i)
                         lists[i].Clear();
                 }
 
@@ -151,11 +150,10 @@ namespace WindowsFormsApp9
                 //}
 
                 myStopwatch.Stop();
-                var resultTime = myStopwatch.Elapsed;
+                var resultTime = myStopwatch.ElapsedTicks;
 
-                string elapsedTime =
-                    $"{resultTime.Hours:00}:{resultTime.Minutes:00}:{resultTime.Seconds:00}.{resultTime.Milliseconds:000}";
-                ComparativeAnalysis.timeSort = resultTime.Seconds * 1000 + resultTime.Milliseconds;
+                var elapsedTime = $"{resultTime}";
+                ComparativeAnalysis.timeSort = resultTime;
                 ComparativeAnalysis.elapsedTime = elapsedTime;
                 return array;
             }

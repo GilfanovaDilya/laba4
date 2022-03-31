@@ -12,25 +12,25 @@ namespace WindowsFormsApp9
 {
     public partial class ComparativeAnalysis : Form
     {
-        private Random random = new Random();
+        private readonly Random _random = new Random();
         public static long Comparison = 0;
         public static long NumberOfPermutations = 0;
         public static string elapsedTime = "";
-        public static int timeSort = 0;
+        public static long timeSort = 0;
         public static List<SortingResultsInformation> sortingResults = new List<SortingResultsInformation>();
-        private Context context = new Context();
+        private Context _context = new Context();
         public ComparativeAnalysis()
         {
             InitializeComponent();
             dataGridView1.Columns.Add("Volume", "Объем выборки");
-            dataGridView1.Columns.Add("BubbleSort", "Метод обмена");
-            dataGridView1.Columns.Add("ShellSort", "Метод Шелла");
+            dataGridView1.Columns.Add("InsertionSort", "Метод вставки");
+            dataGridView1.Columns.Add("BitSorting", "Метод поразрядной сортировки");
             dataGridView1.Rows.Add("10");
             dataGridView1.Rows.Add("100");
             dataGridView1.Rows.Add("1000");
             dataGridView1.Rows.Add("10000");
             dataGridView1.Rows.Add("100000");
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            for (var i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 dataGridView1.Rows[i].Cells[0].ReadOnly = true;
             }
@@ -39,17 +39,17 @@ namespace WindowsFormsApp9
         }
         private void FillArray(int[] vs)
         {
-            for (int i = 0; i < vs.Length; i++)
+            for (var i = 0; i < vs.Length; i++)
             {
-                vs[i] = random.Next(0, 100000);
+                vs[i] = _random.Next(0, 100000);
             }
         }
         private void Sort(int n, int number)
         {
-            this.context = new Context(new InsertionSort());
+            this._context = new Context(new InsertionSort());
             Context.array = new int[n];
             FillArray(Context.array);
-            context.ExecuteAlgorithm(false);
+            _context.ExecuteAlgorithm(false);
             dataGridView1.Rows[number].Cells[1].Value += "С: " + Convert.ToString(Comparison) + " ";
             dataGridView1.Rows[number].Cells[1].Value += "П: " + Convert.ToString(NumberOfPermutations) + " ";
             dataGridView1.Rows[number].Cells[1].Value += "t: " + Convert.ToString(elapsedTime);
@@ -60,10 +60,10 @@ namespace WindowsFormsApp9
             elapsedTime = "";
             Context.array = null;
 
-            this.context = new Context(new BitSorting());
+            this._context = new Context(new BitSorting());
             Context.array = new int[n];
             FillArray(Context.array);
-            context.ExecuteAlgorithm(false);
+            _context.ExecuteAlgorithm(false);
             dataGridView1.Rows[number].Cells[2].Value += "С: " + Convert.ToString(Comparison) + " ";
             dataGridView1.Rows[number].Cells[2].Value += "П: " + Convert.ToString(NumberOfPermutations) + " ";
             dataGridView1.Rows[number].Cells[2].Value += "t: " + Convert.ToString(elapsedTime);
@@ -76,9 +76,9 @@ namespace WindowsFormsApp9
         }
         private void buttonSort_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 5; i++)
+            for (var i = 0; i < 5; i++)
             {
-                for (int j = 1; j < 3; j++)
+                for (var j = 1; j < 3; j++)
                 {
                     dataGridView1.Rows[i].Cells[j].Value = "";
                 }
@@ -90,27 +90,19 @@ namespace WindowsFormsApp9
             Sort(10000, 3);
             Sort(100000, 4);
 
-            SortingResultsInformation MaxElement;
-            SortingResultsInformation MinElement;
-            MaxElement = sortingResults[0];
-            for (int i = 0; i < sortingResults.Count; i++)
+            var maxElement = sortingResults[0];
+            foreach (var elemOfInformation in sortingResults.Where(resultsInformation => maxElement.Comparison < resultsInformation.Comparison))
             {
-                if (MaxElement.Comparison < sortingResults[i].Comparison)
-                {
-                    MaxElement = sortingResults[i];
-                }
+                maxElement = elemOfInformation;
             }
-            MinElement = sortingResults[0];
-            for (int i = 0; i < sortingResults.Count; i++)
+            var minElement = sortingResults[0];
+            foreach (var sortingResultsInformation in sortingResults.Where(information => minElement.Comparison > information.Comparison))
             {
-                if (MinElement.Comparison > sortingResults[i].Comparison)
-                {
-                    MinElement = sortingResults[i];
-                }
+                minElement = sortingResultsInformation;
             }
 
-            label1.Text = MaxElement.NameSortingMethod + " с количеством сраненений равным "  + MaxElement.Comparison + " дает худшие показатели трудоемкости сортировки\n для массива с количеством элементов равным " + MaxElement.Volume + ".";
-            label2.Text = MinElement.NameSortingMethod + " с количеством сраненений равным " + MinElement.Comparison + " дает лучшие показатели трудоемкости сортировки\n для массива с количеством элементов равным " + MinElement.Volume + ".";
+            label1.Text = maxElement.NameSortingMethod + " с количеством сраненений равным "  + maxElement.Comparison + " дает худшие показатели трудоемкости сортировки\n для массива с количеством элементов равным " + maxElement.Volume + ".";
+            label2.Text = minElement.NameSortingMethod + " с количеством сраненений равным " + minElement.Comparison + " дает лучшие показатели трудоемкости сортировки\n для массива с количеством элементов равным " + minElement.Volume + ".";
 
             sortingResults.Clear();
         }

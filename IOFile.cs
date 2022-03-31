@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,7 @@ namespace WindowsFormsApp9
                 return;
             path = form1.openFileDialog1.FileName;
         }
+        [SuppressMessage("ReSharper.DPA", "DPA0001: Memory allocation issues")]
         public static string InputInfoAboutComparison(int first, int second)
         {
             content += "Сравниваем " + Convert.ToString(first) + " и " + Convert.ToString(second) + '\n';
@@ -46,10 +48,6 @@ namespace WindowsFormsApp9
                 content += Convert.ToString(i) + ' ';
             }
             content += '\n';
-        }
-        public static void ZeroingForSeparator()
-        {
-
         }
         private static void Separator(StreamReader streamReader)
         {

@@ -8,6 +8,6 @@ namespace WindowsFormsApp9
 {
     public interface IStrategy
     {
-        int[] Algorithm(int[] mas, bool flag = true);
+        int[] Algorithm(int[] arrayForSort, bool flag = true);
     }
 }

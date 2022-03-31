@@ -13,8 +13,8 @@ namespace WindowsFormsApp9
     public partial class ComparativeAnalysis : Form
     {
         private Random random = new Random();
-        public static int Comparison = 0;
-        public static int NumberOfPermutations = 0;
+        public static long Comparison = 0;
+        public static long NumberOfPermutations = 0;
         public static string elapsedTime = "";
         public static int timeSort = 0;
         public static List<SortingResultsInformation> sortingResults = new List<SortingResultsInformation>();
@@ -46,28 +46,28 @@ namespace WindowsFormsApp9
         }
         private void Sort(int n, int number)
         {
-            this.context = new Context(new BubbleSort());
+            this.context = new Context(new InsertionSort());
             Context.array = new int[n];
             FillArray(Context.array);
             context.ExecuteAlgorithm(false);
             dataGridView1.Rows[number].Cells[1].Value += "С: " + Convert.ToString(Comparison) + " ";
             dataGridView1.Rows[number].Cells[1].Value += "П: " + Convert.ToString(NumberOfPermutations) + " ";
             dataGridView1.Rows[number].Cells[1].Value += "t: " + Convert.ToString(elapsedTime);
-            sortingResults.Add(new SortingResultsInformation(Comparison, NumberOfPermutations, elapsedTime, new BubbleSort(), timeSort, n));
+            sortingResults.Add(new SortingResultsInformation(Comparison, NumberOfPermutations, elapsedTime, new InsertionSort(), timeSort, n));
             Comparison = 0;
             NumberOfPermutations = 0;
             timeSort = 0;
             elapsedTime = "";
             Context.array = null;
 
-            this.context = new Context(new ShellSort());
+            this.context = new Context(new BitSorting());
             Context.array = new int[n];
             FillArray(Context.array);
             context.ExecuteAlgorithm(false);
             dataGridView1.Rows[number].Cells[2].Value += "С: " + Convert.ToString(Comparison) + " ";
             dataGridView1.Rows[number].Cells[2].Value += "П: " + Convert.ToString(NumberOfPermutations) + " ";
             dataGridView1.Rows[number].Cells[2].Value += "t: " + Convert.ToString(elapsedTime);
-            sortingResults.Add(new SortingResultsInformation(Comparison, NumberOfPermutations, elapsedTime, new ShellSort(), timeSort, n));
+            sortingResults.Add(new SortingResultsInformation(Comparison, NumberOfPermutations, elapsedTime, new BitSorting(), timeSort, n));
             Comparison = 0;
             NumberOfPermutations = 0;
             timeSort = 0;

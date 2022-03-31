@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BubbleSort.cs" />
+    <Compile Include="InsertionSort.cs" />
     <Compile Include="ComparativeAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,7 +70,7 @@
     <Compile Include="SetGenerator.Designer.cs">
       <DependentUpon>SetGenerator.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShellSort.cs" />
+    <Compile Include="BitSorting.cs" />
     <Compile Include="SortingResultsInformation.cs" />
     <EmbeddedResource Include="ComparativeAnalysis.resx">
       <DependentUpon>ComparativeAnalysis.cs</DependentUpon>

@@ -8,21 +8,21 @@ namespace WindowsFormsApp9
 {
     public class SortingResultsInformation
     {
-        public int Comparison = 0;
-        public int NumberOfPermutations = 0;
+        public long Comparison = 0;
+        public long NumberOfPermutations = 0;
         public int TimeSort = 0;
         public int Volume = 0;
         public string Time = "";
         public IStrategy Strategy;
         public string NameSortingMethod;
 
-        public SortingResultsInformation(int Comparison, int NumberOfPermutations, string Time, IStrategy Strategy, int TimeSort, int Volume)
+        public SortingResultsInformation(long Comparison, long NumberOfPermutations, string Time, IStrategy Strategy, int TimeSort, int Volume)
         {
             this.Comparison = Comparison;
             this.NumberOfPermutations = NumberOfPermutations;
             this.Time = Time;
             this.Strategy = Strategy;
-            if(Strategy.GetType() == (new BubbleSort()).GetType())
+            if(Strategy.GetType() == (new InsertionSort()).GetType())
             {
                 this.NameSortingMethod = "Метод обмена";
             }

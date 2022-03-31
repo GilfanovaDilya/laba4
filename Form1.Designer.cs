@@ -108,7 +108,7 @@
             // выводСтатистикиToolStripMenuItem
             // 
             this.выводСтатистикиToolStripMenuItem.Name = "выводСтатистикиToolStripMenuItem";
-            this.выводСтатистикиToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.выводСтатистикиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.выводСтатистикиToolStripMenuItem.Text = "Вывод статистики";
             this.выводСтатистикиToolStripMenuItem.Click += new System.EventHandler(this.выводСтатистикиToolStripMenuItem_Click);
             // 
@@ -125,10 +125,10 @@
             this.radioButtonBubbleSort.AutoSize = true;
             this.radioButtonBubbleSort.Location = new System.Drawing.Point(6, 21);
             this.radioButtonBubbleSort.Name = "radioButtonBubbleSort";
-            this.radioButtonBubbleSort.Size = new System.Drawing.Size(134, 17);
+            this.radioButtonBubbleSort.Size = new System.Drawing.Size(135, 17);
             this.radioButtonBubbleSort.TabIndex = 2;
             this.radioButtonBubbleSort.TabStop = true;
-            this.radioButtonBubbleSort.Text = "Сортировка обменом";
+            this.radioButtonBubbleSort.Text = "Сортировка вставкой";
             this.radioButtonBubbleSort.UseVisualStyleBackColor = true;
             // 
             // radioButton2
@@ -136,10 +136,10 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(6, 44);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(121, 17);
+            this.radioButton2.Size = new System.Drawing.Size(155, 17);
             this.radioButton2.TabIndex = 3;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Сортировка Шелла";
+            this.radioButton2.Text = "Поразрядная сортировка";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -189,7 +189,7 @@
             this.labelNumberOfPermutations.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelNumberOfPermutations.Location = new System.Drawing.Point(95, 59);
             this.labelNumberOfPermutations.Name = "labelNumberOfPermutations";
-            this.labelNumberOfPermutations.Size = new System.Drawing.Size(18, 18);
+            this.labelNumberOfPermutations.Size = new System.Drawing.Size(17, 18);
             this.labelNumberOfPermutations.TabIndex = 8;
             this.labelNumberOfPermutations.Text = "0";
             // 
@@ -221,7 +221,7 @@
             this.labelTimeSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelTimeSort.Location = new System.Drawing.Point(95, 91);
             this.labelTimeSort.Name = "labelTimeSort";
-            this.labelTimeSort.Size = new System.Drawing.Size(18, 18);
+            this.labelTimeSort.Size = new System.Drawing.Size(17, 18);
             this.labelTimeSort.TabIndex = 6;
             this.labelTimeSort.Text = "0";
             // 
@@ -243,7 +243,7 @@
             this.labelCountComparison.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelCountComparison.Location = new System.Drawing.Point(95, 33);
             this.labelCountComparison.Name = "labelCountComparison";
-            this.labelCountComparison.Size = new System.Drawing.Size(18, 18);
+            this.labelCountComparison.Size = new System.Drawing.Size(17, 18);
             this.labelCountComparison.TabIndex = 2;
             this.labelCountComparison.Text = "0";
             // 

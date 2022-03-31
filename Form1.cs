@@ -22,8 +22,8 @@ namespace WindowsFormsApp9
             saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             IOFile.form1 = this;
-            ShellSort.form1 = this;
-            BubbleSort.form1 = this;
+            BitSorting.form1 = this;
+            InsertionSort.form1 = this;
         }
 
         private void сгенерироватьНаборToolStripMenuItem_Click(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace WindowsFormsApp9
             {
                 if (radioButtonBubbleSort.Checked == true)
                 {
-                    this.context = new Context(new BubbleSort());
+                    this.context = new Context(new InsertionSort());
                     context.ExecuteAlgorithm();
                     this.AddItemsListBox();
                     IOFile.SaveData();
@@ -55,7 +55,7 @@ namespace WindowsFormsApp9
                 }
                 if (radioButton2.Checked == true)
                 {
-                    this.context = new Context(new ShellSort());
+                    this.context = new Context(new BitSorting());
                     context.ExecuteAlgorithm();
                     this.AddItemsListBox();
                     IOFile.SaveData();

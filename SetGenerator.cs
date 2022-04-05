@@ -31,18 +31,21 @@ namespace WindowsFormsApp9
             {
                 label2.Text = "Введенно некорректное значение.";
                 this.Height = 200;
+                trackBar1.Value = trackBar1.Minimum;
+            }
+            else if ((int.Parse(textBoxCountElements.Text) > trackBar1.Maximum) || (int.Parse(textBoxCountElements.Text) < trackBar1.Minimum))
+            {
+                label2.Text = "Введенное значение вышло \nза допустимый интервал.";
+                this.Height = 225;
+                trackBar1.Value = trackBar1.Minimum;
             }
             else if (!(int.Parse(textBoxCountElements.Text) > trackBar1.Maximum))
             {
                 label2.Text = ""; 
-                this.Height = 175;
+                this.Height = 200;
                 trackBar1.Value = int.Parse(textBoxCountElements.Text);
             }
-            else if((int.Parse(textBoxCountElements.Text) > trackBar1.Maximum) || (int.Parse(textBoxCountElements.Text) < trackBar1.Minimum))
-            {
-                label2.Text = "Введенное значение вышло \nза допустимый интервал.";
-                this.Height = 200;
-            }
+            
         }
 
         private void buttonCreateArray_Click(object sender, EventArgs e)

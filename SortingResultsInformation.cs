@@ -10,13 +10,13 @@ namespace WindowsFormsApp9
     {
         public long Comparison = 0;
         public long NumberOfPermutations = 0;
-        public long TimeSort = 0;
+        public double TimeSort = 0;
         public int Volume = 0;
         public string Time = "";
         public IStrategy Strategy;
         public string NameSortingMethod;
 
-        public SortingResultsInformation(long Comparison, long NumberOfPermutations, string Time, IStrategy Strategy, long TimeSort, int Volume)
+        public SortingResultsInformation(long Comparison, long NumberOfPermutations, string Time, IStrategy Strategy, double TimeSort, int Volume)
         {
             this.Comparison = Comparison;
             this.NumberOfPermutations = NumberOfPermutations;

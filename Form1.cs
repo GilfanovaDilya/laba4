@@ -43,7 +43,7 @@ namespace WindowsFormsApp9
         }
         private void buttonSort_Click(object sender, EventArgs e)
         {
-            if (Context.array != null)
+            if (Context.array != null || Context.array.Length == 0)
             {
                 if (radioButtonBubbleSort.Checked == true)
                 {
@@ -107,11 +107,6 @@ namespace WindowsFormsApp9
         {
             ComparativeAnalysis comparativeAnalysis = new ComparativeAnalysis();
             comparativeAnalysis.Show();
-        }
-
-        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

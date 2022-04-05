@@ -78,7 +78,6 @@
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(63, 22);
             this.toolStripDropDownButton1.Text = "Данные";
-            this.toolStripDropDownButton1.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
             // 
             // открытьФайлToolStripMenuItem
             // 
@@ -108,7 +107,7 @@
             // выводСтатистикиToolStripMenuItem
             // 
             this.выводСтатистикиToolStripMenuItem.Name = "выводСтатистикиToolStripMenuItem";
-            this.выводСтатистикиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выводСтатистикиToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.выводСтатистикиToolStripMenuItem.Text = "Вывод статистики";
             this.выводСтатистикиToolStripMenuItem.Click += new System.EventHandler(this.выводСтатистикиToolStripMenuItem_Click);
             // 

@@ -28,25 +28,39 @@ namespace WindowsFormsApp9
                     IOFile.content += iterationCount + " итерация: " + '\n';
                     newElement = arrayForSort[i];
                     location = i - 1;
+
+                    if (arrayForSort[location] <= newElement)
+                    {
+                        IOFile.InputInfoAboutComparison(arrayForSort[location], newElement);
+                        ComparativeAnalysis.Comparison++;
+
+                        form1.AddItemsListBox(arrayForSort[location], newElement);
+                    }
+
                     while (location >= 0 && arrayForSort[location] > newElement)
                     {
                         IOFile.InputInfoAboutComparison(arrayForSort[location], newElement);
                         ComparativeAnalysis.Comparison++;
 
-                        IOFile.InputInfoAboutTransposition(arrayForSort[location + 1], arrayForSort[location]);
-                        ComparativeAnalysis.NumberOfPermutations++;
+                        form1.AddItemsListBox(arrayForSort[location], newElement);
 
-                        form1.AddItemsListBox(arrayForSort[location + 1], arrayForSort[location]);
+                        IOFile.InputInfoAboutTransposition(arrayForSort[location], newElement);
 
                         arrayForSort[location + 1] = arrayForSort[location];
+                        
+                        ComparativeAnalysis.NumberOfPermutations++;
+
                         location -= 1;
                     }
-                    IOFile.FillContent();
+
+                    
                     arrayForSort[location + 1] = newElement;
+
+                    IOFile.FillContent();
                 }
 
                 myStopwatch.Stop();
-                var resultTime = myStopwatch.ElapsedTicks;
+                var resultTime = myStopwatch.Elapsed.TotalSeconds;
                 var elapsedTime =
                     $"{resultTime}";
                 form1.labelCountComparison.Text = Convert.ToString(ComparativeAnalysis.Comparison);
@@ -71,7 +85,7 @@ namespace WindowsFormsApp9
                 }
 
                 myStopwatch.Stop();
-                var resultTime = myStopwatch.ElapsedTicks;
+                var resultTime = myStopwatch.Elapsed.TotalSeconds;
                 var elapsedTime =
                     $"{resultTime}";
                 ComparativeAnalysis.timeSort = resultTime;

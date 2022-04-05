@@ -39,27 +39,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Yandex-UI-Icons-Private", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(23, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(252, 32);
+            this.label1.Size = new System.Drawing.Size(300, 40);
             this.label1.TabIndex = 0;
             this.label1.Text = "Выберите количество элементов \r\nв генерируемом наборе:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(15, 44);
+            this.trackBar1.Location = new System.Drawing.Point(16, 54);
             this.trackBar1.Maximum = 100;
+            this.trackBar1.Minimum = 1;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(249, 45);
+            this.trackBar1.Size = new System.Drawing.Size(322, 45);
             this.trackBar1.TabIndex = 1;
             this.trackBar1.TickFrequency = 5;
+            this.trackBar1.Value = 1;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // textBoxCountElements
             // 
-            this.textBoxCountElements.Location = new System.Drawing.Point(15, 83);
+            this.textBoxCountElements.Location = new System.Drawing.Point(27, 105);
             this.textBoxCountElements.Name = "textBoxCountElements";
             this.textBoxCountElements.Size = new System.Drawing.Size(100, 20);
             this.textBoxCountElements.TabIndex = 2;
@@ -67,7 +69,7 @@
             // 
             // buttonCreateArray
             // 
-            this.buttonCreateArray.Location = new System.Drawing.Point(140, 83);
+            this.buttonCreateArray.Location = new System.Drawing.Point(214, 105);
             this.buttonCreateArray.Name = "buttonCreateArray";
             this.buttonCreateArray.Size = new System.Drawing.Size(124, 42);
             this.buttonCreateArray.TabIndex = 3;
@@ -78,7 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 112);
+            this.label2.Location = new System.Drawing.Point(24, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 4;
@@ -88,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(272, 136);
+            this.ClientSize = new System.Drawing.Size(350, 159);
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonCreateArray);

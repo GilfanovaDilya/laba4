@@ -30,7 +30,7 @@ namespace WindowsFormsApp9
                 return;
             path = form1.openFileDialog1.FileName;
         }
-        [SuppressMessage("ReSharper.DPA", "DPA0001: Memory allocation issues")]
+
         public static string InputInfoAboutComparison(int first, int second)
         {
             content += "Сравниваем " + Convert.ToString(first) + " и " + Convert.ToString(second) + '\n';
@@ -69,24 +69,15 @@ namespace WindowsFormsApp9
                     {
                         do
                         {
-                            if (streamReader.Peek() == -1)
-                            {
-                                break;
-                            }
+                            if (streamReader.Peek() == -1) break;
                             streamReader.Read(listChar, i, 1);
-                            int.TryParse(Convert.ToString(listChar[i]), out a);
-                            a *= Convert.ToInt32(Math.Pow(10.0, l));
-                            a1 += a;
-                            i++;
-                            l++;
+                            int.TryParse(Convert.ToString(listChar[i++]), out a);
+                            a1 += a * Convert.ToInt32(Math.Pow(10.0, l++));
                         }
                         while (streamReader.Peek() != 32);
-                        string input = Convert.ToString(a1);
-                        string output = new string(input.ToCharArray().Reverse().ToArray());
-                        int.TryParse(output, out a1);
+                        int.TryParse(new string(Convert.ToString(a1).ToCharArray().Reverse().ToArray()), out a1);
                         arrayList.Add(Convert.ToString(a1));
                         l = 0;
-                        a = 0;
                         a1 = 0;
                     }
                     else
@@ -114,12 +105,20 @@ namespace WindowsFormsApp9
         }
         public static void LoadData()
         {
-            OpenLoadDialogForm();
-            using (StreamReader sr = new StreamReader(path, System.Text.Encoding.Default))
+            try
             {
-                Separator(sr);
-                sr.Close();
+                OpenLoadDialogForm();
+                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.Default))
+                {
+                    Separator(sr);
+                    sr.Close();
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Вы не выбрали путь");
+            }
+            
         }
         public static void SaveData(string text = "", bool flag = false)
         {

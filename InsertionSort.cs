@@ -47,7 +47,7 @@ namespace WindowsFormsApp9
                         IOFile.InputInfoAboutTransposition(arrayForSort[location], newElement);
 
                         arrayForSort[location + 1] = arrayForSort[location];
-                        
+                         
                         ComparativeAnalysis.NumberOfPermutations++;
 
                         location -= 1;

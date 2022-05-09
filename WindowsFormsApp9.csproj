@@ -70,7 +70,7 @@
     <Compile Include="SetGenerator.Designer.cs">
       <DependentUpon>SetGenerator.cs</DependentUpon>
     </Compile>
-    <Compile Include="BitSorting.cs" />
+    <Compile Include="QuickSort.cs" />
     <Compile Include="SortingResultsInformation.cs" />
     <EmbeddedResource Include="ComparativeAnalysis.resx">
       <DependentUpon>ComparativeAnalysis.cs</DependentUpon>

@@ -1,22 +1,23 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp9
 {
     public static class IOFile
     {
-        public static string content = "";
-        public static string path = "";
+        public static string content = string.Empty;
+
+        public static string path = string.Empty;
+
         public static Form1 form1 = new Form1();
+
         public static string[] inputString;
+
         public static List<string> arrayList = new List<string>();
+
         public static void OpenSaveDialogForm()
         {
             if (form1.saveFileDialog1.ShowDialog() == DialogResult.Cancel)
@@ -36,22 +37,25 @@ namespace WindowsFormsApp9
             content += "Сравниваем " + Convert.ToString(first) + " и " + Convert.ToString(second) + '\n';
             return "Сравниваем " + Convert.ToString(first) + " и " + Convert.ToString(second) + '\n';
         }
+
         public static string InputInfoAboutTransposition(int first, int second)
         {
             content += "Перестановка " + Convert.ToString(first) + " и " + Convert.ToString(second) + '\n';
             return "Перестановка " + Convert.ToString(first) + " и " + Convert.ToString(second) + '\n';
         }
+
         public static void FillContent()
         {
             foreach (var i in Context.array)
             {
                 content += Convert.ToString(i) + ' ';
             }
+
             content += '\n';
         }
+
         private static void Separator(StreamReader streamReader)
         {
-            var i = 0;
             try
             {
                 inputString = streamReader.ReadToEnd().Split(' ');
@@ -60,24 +64,27 @@ namespace WindowsFormsApp9
                 {
                     throw new Exception("Wrong input");
                 }
-                foreach (int j in Context.array)
+
+                foreach (var j in Context.array)
                 {
                     content += Convert.ToString(j) + " ";
                 }
+
                 form1.listBox1.Items.Add(content);
-                form1.listBox1.Items.Add("");
+                form1.listBox1.Items.Add(string.Empty);
             }
             catch
             {
                 MessageBox.Show("Некорректный формат загружаемого файла.");
             }
         }
+
         public static void LoadData()
         {
             try
             {
                 OpenLoadDialogForm();
-                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.Default))
+                using (var sr = new StreamReader(path, System.Text.Encoding.Default))
                 {
                     Separator(sr);
                     sr.Close();
@@ -87,8 +94,8 @@ namespace WindowsFormsApp9
             {
                 MessageBox.Show("Вы не выбрали путь");
             }
-            
         }
+
         public static void SaveData(string text = "", bool flag = false)
         {
             content += text;
@@ -102,9 +109,8 @@ namespace WindowsFormsApp9
             {
                 System.IO.File.WriteAllText(path, IOFile.content);
             }
-            catch(System.ArgumentException)
+            catch (System.ArgumentException)
             {
-                
             }
         }
     }

@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp9
 {
     public partial class SetGenerator : Form
     {
-        private Random random = new Random();
+        private readonly Random _random = new Random();
         public static Form1 form1;
         public SetGenerator()
         {
@@ -51,9 +44,9 @@ namespace WindowsFormsApp9
         private void buttonCreateArray_Click(object sender, EventArgs e)
         {
             Context.array = new int[trackBar1.Value];
-            for (int i = 0; i < Context.array.Length; i++)
+            for (var i = 0; i < Context.array.Length; i++)
             {
-                Context.array[i] = random.Next(0, 1000);
+                Context.array[i] = _random.Next(0, 1000);
             }
 
             form1.listBox1.Items.Add("");

@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp9
@@ -14,7 +6,9 @@ namespace WindowsFormsApp9
     public partial class Form1 : Form
     {
         public Context context;
+
         public int count = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -22,7 +16,7 @@ namespace WindowsFormsApp9
             saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             IOFile.form1 = this;
-            BitSorting.form1 = this;
+            QuickSort.form1 = this;
             InsertionSort.form1 = this;
         }
 
@@ -30,7 +24,7 @@ namespace WindowsFormsApp9
         {
             if (Context.array == null)
             {
-                SetGenerator setGenerator = new SetGenerator();
+                var setGenerator = new SetGenerator();
                 SetGenerator.form1 = this;
                 setGenerator.Show();
 
@@ -41,36 +35,47 @@ namespace WindowsFormsApp9
                 MessageBox.Show("Массив уже сгенерирован. Очистите старый набор и повторите попытку");
             }
         }
+
         private void buttonSort_Click(object sender, EventArgs e)
         {
-            if (Context.array != null || Context.array.Length == 0)
+            try
             {
-                if (radioButtonBubbleSort.Checked == true)
+                if (Context.array != null || Context.array?.Length == 0)
                 {
-                    this.context = new Context(new InsertionSort());
-                    context.ExecuteAlgorithm();
-                    this.AddItemsListBox();
-                    IOFile.SaveData();
-                    buttonSort.Enabled = false;
+                    if (radioButtonBubbleSort.Checked == true)
+                    {
+                        this.context = new Context(new InsertionSort());
+                        context.ExecuteAlgorithm();
+                        this.AddItemsListBox();
+                        IOFile.SaveData();
+                        buttonSort.Enabled = false;
+                    }
+
+                    if (radioButton2.Checked == true)
+                    {
+                        this.context = new Context(new QuickSort());
+                        context.ExecuteAlgorithm();
+                        this.AddItemsListBox();
+                        IOFile.SaveData();
+                        buttonSort.Enabled = false;
+                    }
+
+                    IOFile.content = string.Empty;
                 }
-                if (radioButton2.Checked == true)
+                else
                 {
-                    this.context = new Context(new BitSorting());
-                    context.ExecuteAlgorithm();
-                    this.AddItemsListBox();
-                    IOFile.SaveData();
-                    buttonSort.Enabled = false;
+                    MessageBox.Show("Массив пуст, сортировка невозможна");
                 }
-                IOFile.content = "";
             }
-            else 
+            catch (Exception exception)
             {
-                MessageBox.Show("Массив пуст, сортировка невозможна");
+                MessageBox.Show(exception.Message);
             }
         }
+
         public void AddItemsListBox(int first = -1, int second = -1)
         {
-            listBox1.Items.Add("");
+            listBox1.Items.Add(string.Empty);
             foreach (var item in Context.array)
             {
                 if (item == first || item == second)
@@ -82,6 +87,7 @@ namespace WindowsFormsApp9
                     listBox1.Items[count] += Convert.ToString(item) + " ";
                 }
             }
+
             count++;
         }
 
@@ -89,9 +95,9 @@ namespace WindowsFormsApp9
         {
             buttonSort.Enabled = true;
             listBox1.Items.Clear();
-            labelCountComparison.Text = "";
-            labelTimeSort.Text = "";
-            labelNumberOfPermutations.Text = "";
+            labelCountComparison.Text = string.Empty;
+            labelTimeSort.Text = string.Empty;
+            labelNumberOfPermutations.Text = string.Empty;
             ComparativeAnalysis.NumberOfPermutations = 0;
             ComparativeAnalysis.Comparison = 0;
             Context.array = null;
@@ -105,7 +111,7 @@ namespace WindowsFormsApp9
 
         private void выводСтатистикиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ComparativeAnalysis comparativeAnalysis = new ComparativeAnalysis();
+            var comparativeAnalysis = new ComparativeAnalysis();
             comparativeAnalysis.Show();
         }
     }

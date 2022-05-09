@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WindowsFormsApp9
+﻿namespace WindowsFormsApp9
 {
     public class Context
     {
         public IStrategy ContextStrategy;
         public static int[] array;
-        public Context(IStrategy Strategy)
-        {
-            this.ContextStrategy = Strategy;
-        }
+        public Context(IStrategy Strategy) => this.ContextStrategy = Strategy;
         public Context() {}
         public void ExecuteAlgorithm(bool flag = true)
         {

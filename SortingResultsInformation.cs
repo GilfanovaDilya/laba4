@@ -1,35 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WindowsFormsApp9
+﻿namespace WindowsFormsApp9
 {
     public class SortingResultsInformation
     {
         public long Comparison = 0;
+
         public long NumberOfPermutations = 0;
+
         public double TimeSort = 0;
+
         public int Volume = 0;
-        public string Time = "";
+
+        public string Time = string.Empty;
+
         public IStrategy Strategy;
+
         public string NameSortingMethod;
 
-        public SortingResultsInformation(long Comparison, long NumberOfPermutations, string Time, IStrategy Strategy, double TimeSort, int Volume)
+        public SortingResultsInformation(
+            long Comparison,
+            long NumberOfPermutations,
+            string Time,
+            IStrategy Strategy,
+            double TimeSort,
+            int Volume)
         {
             this.Comparison = Comparison;
             this.NumberOfPermutations = NumberOfPermutations;
             this.Time = Time;
             this.Strategy = Strategy;
-            this.NameSortingMethod = Strategy.GetType() == (new InsertionSort()).GetType() ? "Метод вставки" : "Метод поразрядной сортировки";
+            this.NameSortingMethod = Strategy.GetType() == (new InsertionSort()).GetType()
+                                         ? "Метод вставки"
+                                         : "Метод быстрой сортировки";
             this.TimeSort = TimeSort;
             this.Volume = Volume;
         }
 
         public SortingResultsInformation()
         {
-
         }
     }
 }

@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp9
@@ -25,7 +21,7 @@ namespace WindowsFormsApp9
             InitializeComponent();
             dataGridView1.Columns.Add("Volume", "Объем выборки");
             dataGridView1.Columns.Add("InsertionSort", "Метод вставки");
-            dataGridView1.Columns.Add("BitSorting", "Метод поразрядной сортировки");
+            dataGridView1.Columns.Add("BitSorting", "Метод быстрой сортировки");
             dataGridView1.Rows.Add("10");
             dataGridView1.Rows.Add("100");
             dataGridView1.Rows.Add("1000");
@@ -57,21 +53,23 @@ namespace WindowsFormsApp9
             dataGridView1.Rows[number].Cells[1].Value += "С: " + Comparison + " ";
             dataGridView1.Rows[number].Cells[1].Value += "П: " + NumberOfPermutations + " ";
             dataGridView1.Rows[number].Cells[1].Value += "t: " + elapsedTime;
-            sortingResults.Add(new SortingResultsInformation(Comparison, NumberOfPermutations, elapsedTime, new InsertionSort(), timeSort, n));
+            sortingResults.Add(new SortingResultsInformation(Comparison, NumberOfPermutations, elapsedTime,
+                new InsertionSort(), timeSort, n));
             Comparison = 0;
             NumberOfPermutations = 0;
             timeSort = 0;
             elapsedTime = "";
             Context.array = null;
 
-            this._context = new Context(new BitSorting());
+            this._context = new Context(new QuickSort());
             Context.array = new int[n];
             FillArray(Context.array);
             _context.ExecuteAlgorithm(false);
             dataGridView1.Rows[number].Cells[2].Value += "С: " + Comparison + " ";
             dataGridView1.Rows[number].Cells[2].Value += "П: " + NumberOfPermutations + " ";
             dataGridView1.Rows[number].Cells[2].Value += "t: " + elapsedTime;
-            sortingResults.Add(new SortingResultsInformation(Comparison, NumberOfPermutations, elapsedTime, new BitSorting(), timeSort, n));
+            sortingResults.Add(new SortingResultsInformation(Comparison, NumberOfPermutations, elapsedTime,
+                new QuickSort(), timeSort, n));
             Comparison = 0;
             NumberOfPermutations = 0;
             timeSort = 0;

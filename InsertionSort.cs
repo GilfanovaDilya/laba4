@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApp9
 {
     public class InsertionSort : IStrategy
     {
         public int iterationCount;
+
         public static Form1 form1;
-        
+
         public int[] Algorithm(int[] arrayForSort, bool flag = true)
         {
             var myStopwatch = new System.Diagnostics.Stopwatch();
@@ -47,13 +43,12 @@ namespace WindowsFormsApp9
                         IOFile.InputInfoAboutTransposition(arrayForSort[location], newElement);
 
                         arrayForSort[location + 1] = arrayForSort[location];
-                         
+
                         ComparativeAnalysis.NumberOfPermutations++;
 
                         location -= 1;
                     }
 
-                    
                     arrayForSort[location + 1] = newElement;
 
                     IOFile.FillContent();
@@ -61,8 +56,7 @@ namespace WindowsFormsApp9
 
                 myStopwatch.Stop();
                 var resultTime = myStopwatch.Elapsed.TotalSeconds;
-                var elapsedTime =
-                    $"{resultTime}";
+                var elapsedTime = $"{resultTime}";
                 form1.labelCountComparison.Text = Convert.ToString(ComparativeAnalysis.Comparison);
                 form1.labelNumberOfPermutations.Text = Convert.ToString(ComparativeAnalysis.NumberOfPermutations);
                 form1.labelTimeSort.Text = elapsedTime;
@@ -81,16 +75,17 @@ namespace WindowsFormsApp9
                         location -= 1;
                         ComparativeAnalysis.NumberOfPermutations++;
                     }
+
                     arrayForSort[location + 1] = newElement;
                 }
 
                 myStopwatch.Stop();
                 var resultTime = myStopwatch.Elapsed.TotalSeconds;
-                var elapsedTime =
-                    $"{resultTime}";
+                var elapsedTime = $"{resultTime}";
                 ComparativeAnalysis.timeSort = resultTime;
                 ComparativeAnalysis.elapsedTime = elapsedTime;
             }
+
             return arrayForSort;
         }
     }

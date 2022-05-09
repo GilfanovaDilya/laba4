@@ -135,10 +135,10 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(6, 44);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(155, 17);
+            this.radioButton2.Size = new System.Drawing.Size(131, 17);
             this.radioButton2.TabIndex = 3;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Поразрядная сортировка";
+            this.radioButton2.Text = "Быстрая сортировка";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // groupBox1

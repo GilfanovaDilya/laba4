@@ -17,7 +17,7 @@ namespace WindowsFormsApp9
             openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             IOFile.form1 = this;
             QuickSort.form1 = this;
-            InsertionSort.form1 = this;
+            ChoiceSort.form1 = this;
         }
 
         private void сгенерироватьНаборToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,9 +42,9 @@ namespace WindowsFormsApp9
             {
                 if (Context.array != null || Context.array?.Length == 0)
                 {
-                    if (radioButtonBubbleSort.Checked == true)
+                    if (radioButtonChoiseSort.Checked == true)
                     {
-                        this.context = new Context(new InsertionSort());
+                        this.context = new Context(new ChoiceSort());
                         context.ExecuteAlgorithm();
                         this.AddItemsListBox();
                         IOFile.SaveData();

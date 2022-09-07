@@ -20,7 +20,7 @@ namespace WindowsFormsApp9
         {
             InitializeComponent();
             dataGridView1.Columns.Add("Volume", "Объем выборки");
-            dataGridView1.Columns.Add("InsertionSort", "Метод вставки");
+            dataGridView1.Columns.Add("InsertionSort", "Метод выбора");
             dataGridView1.Columns.Add("BitSorting", "Метод быстрой сортировки");
             dataGridView1.Rows.Add("10");
             dataGridView1.Rows.Add("100");
@@ -46,7 +46,7 @@ namespace WindowsFormsApp9
 
         private void Sort(int n, int number)
         {
-            this._context = new Context(new InsertionSort());
+            this._context = new Context(new ChoiceSort());
             Context.array = new int[n];
             FillArray(Context.array);
             _context.ExecuteAlgorithm(false);
@@ -54,7 +54,7 @@ namespace WindowsFormsApp9
             dataGridView1.Rows[number].Cells[1].Value += "П: " + NumberOfPermutations + " ";
             dataGridView1.Rows[number].Cells[1].Value += "t: " + elapsedTime;
             sortingResults.Add(new SortingResultsInformation(Comparison, NumberOfPermutations, elapsedTime,
-                new InsertionSort(), timeSort, n));
+                new ChoiceSort(), timeSort, n));
             Comparison = 0;
             NumberOfPermutations = 0;
             timeSort = 0;

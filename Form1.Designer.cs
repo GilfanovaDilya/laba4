@@ -23,8 +23,8 @@
         #region Код, автоматически созданный конструктором форм Windows
 
         /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -36,7 +36,7 @@
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.выводСтатистикиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.radioButtonBubbleSort = new System.Windows.Forms.RadioButton();
+            this.radioButtonChoiseSort = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonSort = new System.Windows.Forms.Button();
@@ -57,9 +57,7 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1,
-            this.toolStripDropDownButton2});
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.toolStripDropDownButton1, this.toolStripDropDownButton2 });
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -70,9 +68,7 @@
             // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.открытьФайлToolStripMenuItem,
-            this.сгенерироватьНаборToolStripMenuItem});
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.открытьФайлToolStripMenuItem, this.сгенерироватьНаборToolStripMenuItem });
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -96,8 +92,7 @@
             // toolStripDropDownButton2
             // 
             this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.выводСтатистикиToolStripMenuItem});
+            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.выводСтатистикиToolStripMenuItem });
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
@@ -119,16 +114,16 @@
             this.listBox1.Size = new System.Drawing.Size(947, 511);
             this.listBox1.TabIndex = 1;
             // 
-            // radioButtonBubbleSort
+            // radioButtonChoiseSort
             // 
-            this.radioButtonBubbleSort.AutoSize = true;
-            this.radioButtonBubbleSort.Location = new System.Drawing.Point(6, 21);
-            this.radioButtonBubbleSort.Name = "radioButtonBubbleSort";
-            this.radioButtonBubbleSort.Size = new System.Drawing.Size(135, 17);
-            this.radioButtonBubbleSort.TabIndex = 2;
-            this.radioButtonBubbleSort.TabStop = true;
-            this.radioButtonBubbleSort.Text = "Сортировка вставкой";
-            this.radioButtonBubbleSort.UseVisualStyleBackColor = true;
+            this.radioButtonChoiseSort.AutoSize = true;
+            this.radioButtonChoiseSort.Location = new System.Drawing.Point(6, 21);
+            this.radioButtonChoiseSort.Name = "radioButtonChoiseSort";
+            this.radioButtonChoiseSort.Size = new System.Drawing.Size(134, 17);
+            this.radioButtonChoiseSort.TabIndex = 2;
+            this.radioButtonChoiseSort.TabStop = true;
+            this.radioButtonChoiseSort.Text = "Сортировка выбором";
+            this.radioButtonChoiseSort.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
@@ -146,7 +141,7 @@
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.buttonSort);
             this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButtonBubbleSort);
+            this.groupBox1.Controls.Add(this.radioButtonChoiseSort);
             this.groupBox1.Location = new System.Drawing.Point(12, 31);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(203, 100);
@@ -188,7 +183,7 @@
             this.labelNumberOfPermutations.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelNumberOfPermutations.Location = new System.Drawing.Point(95, 59);
             this.labelNumberOfPermutations.Name = "labelNumberOfPermutations";
-            this.labelNumberOfPermutations.Size = new System.Drawing.Size(17, 18);
+            this.labelNumberOfPermutations.Size = new System.Drawing.Size(18, 18);
             this.labelNumberOfPermutations.TabIndex = 8;
             this.labelNumberOfPermutations.Text = "0";
             // 
@@ -220,7 +215,7 @@
             this.labelTimeSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelTimeSort.Location = new System.Drawing.Point(95, 91);
             this.labelTimeSort.Name = "labelTimeSort";
-            this.labelTimeSort.Size = new System.Drawing.Size(17, 18);
+            this.labelTimeSort.Size = new System.Drawing.Size(18, 18);
             this.labelTimeSort.TabIndex = 6;
             this.labelTimeSort.Text = "0";
             // 
@@ -242,7 +237,7 @@
             this.labelCountComparison.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelCountComparison.Location = new System.Drawing.Point(95, 33);
             this.labelCountComparison.Name = "labelCountComparison";
-            this.labelCountComparison.Size = new System.Drawing.Size(17, 18);
+            this.labelCountComparison.Size = new System.Drawing.Size(18, 18);
             this.labelCountComparison.TabIndex = 2;
             this.labelCountComparison.Text = "0";
             // 
@@ -284,7 +279,6 @@
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -293,7 +287,7 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem открытьФайлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сгенерироватьНаборToolStripMenuItem;
-        private System.Windows.Forms.RadioButton radioButtonBubbleSort;
+        private System.Windows.Forms.RadioButton radioButtonChoiseSort;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonSort;

@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InsertionSort.cs" />
+    <Compile Include="ChoiceSort.cs" />
     <Compile Include="ComparativeAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>

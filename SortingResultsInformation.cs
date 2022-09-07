@@ -28,8 +28,8 @@
             this.NumberOfPermutations = NumberOfPermutations;
             this.Time = Time;
             this.Strategy = Strategy;
-            this.NameSortingMethod = Strategy.GetType() == (new InsertionSort()).GetType()
-                                         ? "Метод вставки"
+            this.NameSortingMethod = Strategy.GetType() == (new ChoiceSort()).GetType()
+                                         ? "Метод выбора"
                                          : "Метод быстрой сортировки";
             this.TimeSort = TimeSort;
             this.Volume = Volume;

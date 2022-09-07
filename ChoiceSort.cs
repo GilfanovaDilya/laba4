@@ -2,7 +2,7 @@
 
 namespace WindowsFormsApp9
 {
-    public class InsertionSort : IStrategy
+    public class ChoiceSort : IStrategy
     {
         public int iterationCount;
 
@@ -18,42 +18,28 @@ namespace WindowsFormsApp9
             {
                 IOFile.FillContent();
                 myStopwatch.Start();
-                for (var i = 1; i < length; i++)
+                for (var i = 0; i < length - 1; i++)
                 {
                     iterationCount++;
                     IOFile.content += iterationCount + " итерация: " + '\n';
-                    newElement = arrayForSort[i];
-                    location = i - 1;
-
-                    if (arrayForSort[location] <= newElement)
+                    //поиск минимального числа
+                    var min = i;
+                    for (var j = i + 1; j < length; j++)
                     {
-                        IOFile.InputInfoAboutComparison(arrayForSort[location], newElement);
+                        IOFile.InputInfoAboutComparison(arrayForSort[j], arrayForSort[min]);
                         ComparativeAnalysis.Comparison++;
-
-                        form1.AddItemsListBox(arrayForSort[location], newElement);
+                        form1.AddItemsListBox(arrayForSort[j], arrayForSort[min]);
+                        if (arrayForSort[j] < arrayForSort[min])
+                        {
+                            min = j;
+                        }
                     }
-
-                    while (location >= 0 && arrayForSort[location] > newElement)
-                    {
-                        IOFile.InputInfoAboutComparison(arrayForSort[location], newElement);
-                        ComparativeAnalysis.Comparison++;
-
-                        form1.AddItemsListBox(arrayForSort[location], newElement);
-
-                        IOFile.InputInfoAboutTransposition(arrayForSort[location], newElement);
-
-                        arrayForSort[location + 1] = arrayForSort[location];
-
-                        ComparativeAnalysis.NumberOfPermutations++;
-
-                        location -= 1;
-                    }
-
-                    arrayForSort[location + 1] = newElement;
-
+                    IOFile.InputInfoAboutTransposition(arrayForSort[min], arrayForSort[i]);
+                    //обмен элементов
+                    (arrayForSort[min], arrayForSort[i]) = (arrayForSort[i], arrayForSort[min]);
+                    ComparativeAnalysis.NumberOfPermutations++;
                     IOFile.FillContent();
                 }
-
                 myStopwatch.Stop();
                 var resultTime = myStopwatch.Elapsed.TotalSeconds;
                 var elapsedTime = $"{resultTime}";
@@ -64,21 +50,22 @@ namespace WindowsFormsApp9
             else
             {
                 myStopwatch.Start();
-                for (var i = 1; i < length; i++)
+                for (var i = 0; i < length - 1; i++)
                 {
-                    newElement = arrayForSort[i];
-                    location = i - 1;
-                    while (location >= 0 && arrayForSort[location] > newElement)
+                    //поиск минимального числа
+                    var min = i;
+                    for (var j = i + 1; j < length; j++)
                     {
                         ComparativeAnalysis.Comparison++;
-                        arrayForSort[location + 1] = arrayForSort[location];
-                        location -= 1;
-                        ComparativeAnalysis.NumberOfPermutations++;
+                        if (arrayForSort[j] < arrayForSort[min])
+                        {
+                            min = j;
+                        }
                     }
-
-                    arrayForSort[location + 1] = newElement;
+                    //обмен элементов
+                    (arrayForSort[min], arrayForSort[i]) = (arrayForSort[i], arrayForSort[min]);
+                    ComparativeAnalysis.NumberOfPermutations++;
                 }
-
                 myStopwatch.Stop();
                 var resultTime = myStopwatch.Elapsed.TotalSeconds;
                 var elapsedTime = $"{resultTime}";
